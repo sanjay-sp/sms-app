@@ -1,0 +1,43 @@
+.navbar {
+    width: 100vw;
+    min-width: fit-content;
+    height: fit-content;
+    background-color:transparent;
+    display: flex;
+    color: black;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    margin: 0;
+}
+
+.navbar ul {    
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding-right: 3rem;
+    margin: 0;
+}
+
+.navbar li {
+    padding: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: black;
+    border-bottom: 2px solid white;
+}
+
+.navbar li:hover {
+    cursor: pointer;
+    color: royalblue;
+    border-bottom: 2px solid royalblue;
+}
+
+.logo {
+    padding-left: 2rem;
+    max-height: 60px;
+}
+
+a {
+    text-decoration: none;
+}
