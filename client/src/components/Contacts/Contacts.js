@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import Contact from "./Contact";
 import "./Contacts.css";
 
@@ -8,7 +10,9 @@ const Contacts = ({ state }) => {
         <p>Contact List</p>
       </div>
       <div className="contact-list">
-        <Contact />
+        <Link to="/info">
+          <Contact />
+        </Link>
       </div>
     </div>
   );

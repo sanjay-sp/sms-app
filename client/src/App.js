@@ -1,14 +1,26 @@
 import "./App.css";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import NavBar from "./components/NavBar/Navbar";
-import ContactPage from "./components/Pages/ContactPage";
+import ContactPage from "./components/Pages/Contacts/ContactPage";
+import ContactInfo from "./components/Pages/Contact Info/ContactInfo";
+import MessagePage from "./components/Pages/Message/MessagePage";
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <div className="page">
-        <ContactPage />
-      </div>
+      <Router>
+        <NavBar />
+        <div className="page">
+          <Routes>
+            <Route path="/" exact element={<ContactPage />} />
+            <Route path="/info" exact element={<ContactInfo />} />
+            <Route path="/sms" exact element={<MessagePage />} />
+            <Route path="/history" exact element="" />
+          </Routes>
+        </div>
+      </Router>
     </div>
   );
 }

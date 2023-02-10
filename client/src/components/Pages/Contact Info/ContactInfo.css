@@ -1,0 +1,40 @@
+.contact-info-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 80vh;
+}
+
+.contact-detail {
+  margin: auto;
+}
+
+.contact-info-name {
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgb(70, 68, 68);
+}
+
+.contact-info-number {
+  margin-top: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgb(70, 68, 68);
+}
+
+.contact-info-btn {
+  margin-top: 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1rem;
+  border: none;
+  background-color: rgb(31, 189, 251);
+  border-radius: 0.5rem;
+  color: white;
+}
+
+.contact-info-btn:hover {
+  background-color: rgb(2, 142, 197);
+  cursor: pointer;
+}

@@ -1,0 +1,65 @@
+.message-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 80vh;
+}
+
+.message-container {
+  margin: auto;
+}
+
+.message-page-fname,
+.message-page-lname,
+.message-page-otp,
+.message-page-phone {
+  display: flex;
+  margin: 2rem;
+}
+
+label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: grey;
+  margin-right: 1.5rem;
+  font-weight: 600;
+}
+
+.first-name,
+.last-name,
+.message-phone-number,
+.message-otp {
+  font-size: 1.6rem;
+  color: rgb(65, 65, 65);
+  font-weight: 700;
+}
+
+.message-otp {
+  display: flex;
+}
+
+.otp-box {
+  margin: 0 0.5rem;
+  background-color: rgba(255, 228, 196, 0.644);
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.3rem;
+}
+
+.message-page-btn {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1rem 3rem;
+  border: none;
+  background-color: rgb(3, 160, 3);
+  border-radius: 0.5rem;
+  color: white;
+  transition: 0.2s;
+}
+
+.message-page-btn:hover {
+  cursor: pointer;
+  background-color: green;
+  transform: scale(1.1);
+}
