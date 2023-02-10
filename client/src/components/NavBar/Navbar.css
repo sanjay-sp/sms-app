@@ -1,0 +1,35 @@
+.navbar {
+  display: flex;
+  height: 4rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  padding: 0 5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-title {
+  font-size: 1.3rem;
+  color: royalblue;
+}
+
+.nav-routes {
+  display: flex;
+  height: 100%;
+  align-items: end;
+}
+
+.nav-button {
+  padding: 0 2rem;
+  padding-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(43, 43, 43);
+  cursor: pointer;
+  border: 4px solid transparent;
+}
+
+.nav-button:hover {
+  border-bottom: 4px solid green;
+  color: green;
+}

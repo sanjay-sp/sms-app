@@ -1,0 +1,48 @@
+.contacts {
+  width: 30vw;
+  height: 70vh;
+  margin: 2rem auto;
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+.header {
+  width: 100%;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.75);
+}
+
+.header p {
+  padding: 1rem;
+  font-weight: 600;
+  align-items: center;
+  margin: 0%;
+  color: royalblue;
+}
+
+.contact-list {
+  max-height: 90%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
