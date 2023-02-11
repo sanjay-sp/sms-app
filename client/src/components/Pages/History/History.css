@@ -1,0 +1,30 @@
+.msg-table {
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.msg-table-header {
+  padding: 2rem;
+  background-color: whitesmoke;
+  color: rgb(52, 52, 52);
+  border-radius: 2rem;
+  color: black;
+}
+
+.msg-table-header > th {
+  padding: 1rem 6rem;
+}
+
+.user-data {
+  padding-top: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+  font-weight: 600;
+}
+
+.user-row:hover {
+  background-color: rgba(154, 186, 246, 0.173);
+}
