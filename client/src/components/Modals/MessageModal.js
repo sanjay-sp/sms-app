@@ -16,7 +16,7 @@ const MessageModal = ({ message }) => {
           src={message == "success" ? tick : error}
         />
         <div className="message-content">
-          {message == "success" ? "OTP sent" : "Sorry! Error occurred"}
+          {message == "success" ? "OTP sent" : "Oops! Something went wrong"}
         </div>
         <button className="ok-btn" onClick={clickHandler}>
           OK
