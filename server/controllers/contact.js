@@ -17,10 +17,19 @@ exports.createContact = async (req, res) => {
 
 exports.fetchContacts = async (req, res) => {
   try {
-  } catch (error) {}
+    const contacts = await ContactModel.find({});
+    res.json(contacts);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 exports.findContact = async (req, res) => {
   try {
-  } catch (error) {}
+    const { id } = req.body;
+    const user = await ContactModel.findById(id);
+    res.json(user);
+  } catch (error) {
+    console.log(error);
+  }
 };

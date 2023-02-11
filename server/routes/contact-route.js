@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.post("/api/create-contact", contactController.createContact);
 router.get("/api/get-contacts", contactController.fetchContacts);
-router.get("/api/get-contact-info", contactController.findContact);
+router.post("/api/get-contact-info", contactController.findContact);
 
 module.exports = router;
