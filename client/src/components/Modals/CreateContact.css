@@ -1,4 +1,4 @@
-.modal {
+.create-modal {
   display: block;
   position: fixed;
   z-index: 1;
@@ -12,10 +12,74 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal-content {
+.create-modal-content {
   background-color: #fefefe;
   margin: auto;
-  padding: 20px;
+  padding: 1rem;
   border: 1px solid #888;
   width: 50%;
+}
+
+.create-modal-header {
+  font-size: 2rem;
+  color: rgb(91, 91, 91);
+  font-weight: 600;
+}
+
+.create-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: auto;
+}
+
+.create-modal-label {
+  margin-top: 1rem;
+  font-weight: 600;
+  width: 100%;
+  text-align: left;
+}
+
+.first-name-inp,
+.last-name-inp,
+.phone-number-inp {
+  height: 2rem;
+  font-size: 1.3rem;
+  margin-top: 0.3rem;
+  width: 100%;
+}
+
+.create-modal-btns {
+  margin-top: 2rem;
+}
+
+.close-create {
+  border: none;
+  font-size: 1rem;
+  color: white;
+  background: red;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  border-radius: 0.3rem;
+}
+
+.close-create:hover {
+  background-color: rgb(251, 51, 51);
+  cursor: pointer;
+}
+
+.create-btn {
+  border: none;
+  font-size: 1rem;
+  color: white;
+  background: royalblue;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  border-radius: 0.3rem;
+}
+
+.create-btn:hover {
+  background-color: rgb(93, 127, 228);
+  cursor: pointer;
 }

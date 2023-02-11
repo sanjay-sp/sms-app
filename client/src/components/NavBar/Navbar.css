@@ -8,6 +8,16 @@
   align-items: center;
 }
 
+.nav-head {
+  display: flex;
+  align-items: center;
+}
+
+.nav-icon {
+  max-height: 2rem;
+  margin-right: 0.5rem;
+}
+
 .nav-title {
   font-size: 1.3rem;
   color: royalblue;
@@ -30,6 +40,11 @@
 }
 
 .nav-button:hover {
+  border-bottom: 4px solid green;
+  color: green;
+}
+
+.active {
   border-bottom: 4px solid green;
   color: green;
 }
