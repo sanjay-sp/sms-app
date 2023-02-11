@@ -1,10 +1,15 @@
 import { useState } from "react";
+import PhoneInput from "react-phone-number-input";
+import { isValidPhoneNumber } from "react-phone-number-input";
+import "react-phone-number-input/style.css";
+import Toast from "../Toast/Toast";
 import "./CreateContact.css";
 
 const CreateContactModal = ({ openModal }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [openToast, setOpenToast] = useState(false);
 
   const capitalize = (string) => {
     return string.charAt(0).toUpperCase() + string.toLowerCase().slice(1);
@@ -12,18 +17,25 @@ const CreateContactModal = ({ openModal }) => {
 
   const submitContact = (e) => {
     e.preventDefault();
-    fetch("http://localhost:4000/api/create-contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        firstName,
-        lastName,
-        phoneNumber,
-      }),
-    });
-    window.location.reload("/");
+    if (isValidPhoneNumber(phoneNumber)) {
+      fetch("http://localhost:4000/api/create-contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          phoneNumber,
+        }),
+      });
+      window.location.reload("/");
+    } else {
+      setOpenToast(true);
+      setTimeout(() => {
+        setOpenToast(false);
+      }, 1500);
+    }
   };
   return (
     <div className="create-modal">
@@ -47,12 +59,12 @@ const CreateContactModal = ({ openModal }) => {
             onChange={(e) => setLastName(capitalize(e.target.value))}
           />
           <label className="create-modal-label">Phone Number</label>
-          <input
-            type="text"
+          <PhoneInput
+            defaultCountry="IN"
             className="phone-number-inp"
             value={phoneNumber}
             required="true"
-            onChange={(e) => setPhoneNumber(e.target.value)}
+            onChange={setPhoneNumber}
           />
           <div className="create-modal-btns">
             <button type="submit" className="create-btn">
@@ -63,6 +75,7 @@ const CreateContactModal = ({ openModal }) => {
             </button>
           </div>
         </form>
+        {openToast ? <Toast /> : <div />}
       </div>
     </div>
   );

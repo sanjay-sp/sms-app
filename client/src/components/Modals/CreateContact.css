@@ -50,6 +50,10 @@
   width: 100%;
 }
 
+.phone-number-inp > input {
+  height: inherit;
+}
+
 .create-modal-btns {
   margin-top: 2rem;
 }
