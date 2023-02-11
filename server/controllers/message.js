@@ -11,7 +11,7 @@ exports.getAllMessages = async (req, res) => {
 };
 
 exports.sendMessage = async (req, res) => {
-  const { otp, phoneNumber } = req.body;
+  const { firstName, lastName, otp, phoneNumber } = req.body;
   const accountSid = process.env.TWILIO_SID;
   const authToken = process.env.TWILIO_AUTH_TOKEN;
 
@@ -19,10 +19,20 @@ exports.sendMessage = async (req, res) => {
     const client = require("twilio")(accountSid, authToken);
     client.messages
       .create({
-        body: { otp },
-        to: { phoneNumber },
+        body: `Hi, Your OTP is: ${otp}`,
+        to: phoneNumber,
         from: "+1 620 869 6548",
       })
-      .then(() => res.json({ message: "OTP sent successfully" }));
-  } catch (error) {}
+      .then(async () => {
+        try {
+          await MessageModel.create({ firstName, lastName, phoneNumber, otp });
+          res.json({ message: "success" });
+        } catch (error) {
+          console.log(error);
+          res.json({ message: error });
+        }
+      });
+  } catch (error) {
+    res.json({ message: "error" });
+  }
 };

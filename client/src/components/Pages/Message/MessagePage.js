@@ -5,13 +5,14 @@ import "./MessagePage.css";
 
 const MessagePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalStatus, setModalStatus] = useState("");
 
   const params = useLocation();
   const { firstName, lastName, phoneNumber } = params.state.contact;
   const randomOTP = Math.round(Math.random() * 1000000);
 
   const sendMessage = () => {
-    fetch("http://localhost:400/api/send-message", {
+    fetch("http://localhost:4000/api/send-message", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,9 +21,20 @@ const MessagePage = () => {
         firstName,
         lastName,
         phoneNumber,
-        otp: `Hi, Your OTP is: ${randomOTP}`,
+        otp: randomOTP,
       }),
-    }).then(() => setIsModalOpen(true));
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((result) => {
+        if (result.message == "success") {
+          setModalStatus("success");
+        } else {
+          setModalStatus("error");
+        }
+        setIsModalOpen(true);
+      });
   };
   return (
     <div className="message-page">
@@ -51,7 +63,7 @@ const MessagePage = () => {
           Send OTP
         </button>
       </div>
-      {isModalOpen ? <MessageModal /> : <div></div>}
+      {isModalOpen ? <MessageModal message={modalStatus} /> : <div></div>}
     </div>
   );
 };

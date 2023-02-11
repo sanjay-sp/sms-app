@@ -1,7 +1,9 @@
 import tick from "../../public/Green-Tick.png";
+import error from "../../public/error.png";
+
 import "./MessageModal.css";
 
-const MessageModal = () => {
+const MessageModal = ({ message }) => {
   const clickHandler = () => {
     window.location = "/";
   };
@@ -9,8 +11,13 @@ const MessageModal = () => {
   return (
     <div className="modal">
       <div className="modal-content">
-        <img className="tick-symbol" src={tick} />
-        <div className="message-content">OTP sent</div>
+        <img
+          className="tick-symbol"
+          src={message == "success" ? tick : error}
+        />
+        <div className="message-content">
+          {message == "success" ? "OTP sent" : "Sorry! Error occurred"}
+        </div>
         <button className="ok-btn" onClick={clickHandler}>
           OK
         </button>

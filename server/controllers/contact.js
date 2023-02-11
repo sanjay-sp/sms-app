@@ -9,7 +9,7 @@ exports.createContact = async (req, res) => {
       lastName,
       phoneNumber,
     });
-    res.json({ message: "contact created" });
+    res.json({ message: "success" });
   } catch (error) {
     console.log(error);
   }
