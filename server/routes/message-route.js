@@ -1,13 +1,10 @@
 const express = require("express");
 
+const messageController = require("../controllers/message");
+
 const router = express.Router();
 
-router.post("/api/send-otp", (req, res) => {
-  res.send("Message Sent");
-});
-
-router.get("/api/get-messages", (req, res) => {
-  res.send("Fetched all messages");
-});
+router.get("/api/get-messages", messageController.getAllMessages);
+router.post("/api/send-message", messageController.sendMessage);
 
 module.exports = router;
