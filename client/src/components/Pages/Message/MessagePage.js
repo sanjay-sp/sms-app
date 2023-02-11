@@ -25,6 +25,7 @@ const MessagePage = () => {
       }),
     })
       .then((res) => {
+        console.log(res);
         return res.json();
       })
       .then((result) => {
