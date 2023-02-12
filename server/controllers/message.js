@@ -18,25 +18,29 @@ exports.sendMessage = async (req, res) => {
   try {
     const client = require("twilio")(accountSid, authToken);
     client.messages
-      .create(
-        {
-          body: `Hi, Your OTP is: ${otp}`,
-          to: phoneNumber,
-          from: "+1 620 869 6548",
-        },
-        (err) => res.json({ message: "error" })
-      )
-      .then(async () => {
+      .create({
+        body: `Hi, Your OTP is: ${otp}`,
+        to: phoneNumber,
+        from: "+1 620 869 6548",
+      })
+      .then(async (resp) => {
         try {
-          await MessageModel.create({ firstName, lastName, phoneNumber, otp });
+          await MessageModel.create({
+            firstName,
+            lastName,
+            phoneNumber,
+            otp,
+          });
           res.json({ message: "success" });
         } catch (error) {
           res.json({ message: "error" });
           console.log("Message create error", error);
         }
+      })
+      .catch((err) => {
+        return res.json({ message: "error" });
       });
   } catch (error) {
-    console.log("Message catch error");
     res.json({ message: "error" });
   }
 };
