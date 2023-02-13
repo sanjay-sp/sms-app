@@ -48,3 +48,14 @@
   border-bottom: 4px solid green;
   color: green;
 }
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+
+  .navbar a,
+  .nav-title {
+    font-size: 0.8rem;
+  }
+}

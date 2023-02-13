@@ -63,3 +63,31 @@
   background-color: green;
   transform: scale(1.1);
 }
+
+@media screen and (max-width: 768px) {
+  .page {
+    margin: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .message-page-fname,
+  .message-page-lname,
+  .message-page-otp,
+  .message-page-phone {
+    margin: 2rem 1rem;
+  }
+
+  .message-label,
+  .first-name,
+  .last-name,
+  .message-phone-number,
+  .otp-box {
+    font-size: 1.2rem;
+  }
+
+  .otp-box {
+    margin: 0 0.2rem;
+    padding: 0.2rem;
+  }
+}

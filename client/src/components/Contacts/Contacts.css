@@ -50,3 +50,29 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+@media screen and (max-width: 768px) {
+  .contacts {
+    width: 60vw;
+  }
+
+  .contact-list {
+    max-height: 85%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contact-page,
+  .contacts {
+    width: 90vw;
+    margin: auto;
+  }
+
+  .contacts {
+    margin-top: 2rem;
+  }
+
+  .page {
+    margin: 0;
+  }
+}

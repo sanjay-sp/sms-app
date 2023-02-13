@@ -59,10 +59,10 @@
 }
 
 .close-create {
-  border: none;
+  border: 1px solid black;
   font-size: 1rem;
-  color: white;
-  background: red;
+  color: black;
+  background: white;
   padding: 0.5rem 1rem;
   margin: 1rem;
   border-radius: 0.3rem;
@@ -71,6 +71,7 @@
 .close-create:hover {
   background-color: rgb(251, 51, 51);
   cursor: pointer;
+  color: white;
 }
 
 .create-btn {
@@ -86,4 +87,26 @@
 .create-btn:hover {
   background-color: rgb(93, 127, 228);
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .create-modal-content,
+  .create-form {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .create-modal-content,
+  .create-form {
+    width: 90%;
+  }
+
+  .create-modal {
+    padding-top: 25%;
+  }
+
+  .create-modal-header {
+    font-size: 1.5rem;
+  }
 }
