@@ -29,6 +29,16 @@
   background-color: rgba(154, 186, 246, 0.173);
 }
 
+@media screen and (max-width: 1080px) {
+  .page {
+    margin: 0 2rem;
+  }
+
+  .msg-table-header th {
+    padding: 1rem 4rem;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .page {
     margin: 0 1rem;
