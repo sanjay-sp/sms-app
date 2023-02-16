@@ -28,8 +28,7 @@ const CreateContactModal = ({ openModal }) => {
           lastName,
           phoneNumber,
         }),
-      });
-      window.location.reload("/");
+      }).then(() => window.location.reload("/"));
     } else {
       setOpenToast(true);
       setTimeout(() => {
