@@ -89,6 +89,11 @@
   cursor: pointer;
 }
 
+.create-btn:disabled {
+  background-color: rgba(93, 127, 228, 0.44);
+  cursor: wait;
+}
+
 @media screen and (max-width: 768px) {
   .create-modal-content,
   .create-form {
