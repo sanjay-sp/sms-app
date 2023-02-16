@@ -5,10 +5,11 @@ const History = () => {
   const [messages, setMessages] = useState([]);
 
   const getAllMessages = async () => {
-    const data = await fetch("http://localhost:4000/api/get-messages");
+    const data = await fetch(
+      `${process.env.REACT_APP_SERVER_URL}/api/get-messages`
+    );
     const res = await data.json();
     setMessages(res);
-    console.log(res);
   };
 
   useEffect(() => {

@@ -18,7 +18,7 @@ const CreateContactModal = ({ openModal }) => {
   const submitContact = (e) => {
     e.preventDefault();
     if (isValidPhoneNumber(phoneNumber)) {
-      fetch("http://localhost:4000/api/create-contact", {
+      fetch(`${process.env.REACT_APP_SERVER_URL}/api/create-contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

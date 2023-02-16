@@ -12,7 +12,7 @@ const MessagePage = () => {
   const randomOTP = Math.round(Math.random() * 1000000);
 
   const sendMessage = () => {
-    fetch("http://localhost:4000/api/send-message", {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/api/send-message`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
