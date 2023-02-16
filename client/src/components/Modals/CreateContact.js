@@ -69,7 +69,11 @@ const CreateContactModal = ({ openModal }) => {
             onChange={setPhoneNumber}
           />
           <div className="create-modal-btns">
-            <button type="submit" className="create-btn" disabled={true}>
+            <button
+              type="submit"
+              className="create-btn"
+              disabled={isDisableButton}
+            >
               Create
             </button>
             <button className="close-create" onClick={openModal}>
