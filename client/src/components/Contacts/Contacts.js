@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 import Contact from "./Contact";
 import "./Contacts.css";
 
 const Contacts = () => {
   const [contacts, setContacts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getContacts();
@@ -25,6 +27,7 @@ const Contacts = () => {
     );
     const contactList = await data.json();
     setContacts(contactList);
+    setIsLoading(false);
   };
 
   return (
@@ -33,18 +36,22 @@ const Contacts = () => {
         <p>Contact List</p>
       </div>
       <div className="contact-list">
-        {contacts
-          .slice(0)
-          .reverse()
-          .map((contact) => {
-            return (
-              <div key={contact._id}>
-                <Link to="/info" state={{ contact }}>
-                  <Contact contact={contact} />
-                </Link>
-              </div>
-            );
-          })}
+        {isLoading ? (
+          <Loading />
+        ) : (
+          contacts
+            .slice(0)
+            .reverse()
+            .map((contact) => {
+              return (
+                <div key={contact._id}>
+                  <Link to="/info" state={{ contact }}>
+                    <Contact contact={contact} />
+                  </Link>
+                </div>
+              );
+            })
+        )}
       </div>
     </div>
   );
