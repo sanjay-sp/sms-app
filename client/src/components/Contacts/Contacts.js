@@ -12,7 +12,14 @@ const Contacts = () => {
   }, []);
 
   const getContacts = async () => {
-    const data = await fetch("http://localhost:4000/api/get-contacts");
+    const data = await fetch("http://localhost:4000/api/get-contacts", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
     const contactList = await data.json();
     setContacts(contactList);
   };
