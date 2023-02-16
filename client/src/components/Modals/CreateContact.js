@@ -10,6 +10,7 @@ const CreateContactModal = ({ openModal }) => {
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [openToast, setOpenToast] = useState(false);
+  const [isDisableButton, setIsDisabledButton] = useState(false);
 
   const capitalize = (string) => {
     return string.charAt(0).toUpperCase() + string.toLowerCase().slice(1);
@@ -17,6 +18,7 @@ const CreateContactModal = ({ openModal }) => {
 
   const submitContact = (e) => {
     e.preventDefault();
+    setIsDisabledButton(true);
     if (isValidPhoneNumber(phoneNumber)) {
       fetch(`${process.env.REACT_APP_SERVER_URL}/api/create-contact`, {
         method: "POST",
@@ -30,6 +32,7 @@ const CreateContactModal = ({ openModal }) => {
         }),
       }).then(() => window.location.reload("/"));
     } else {
+      setIsDisabledButton(false);
       setOpenToast(true);
       setTimeout(() => {
         setOpenToast(false);
@@ -69,7 +72,11 @@ const CreateContactModal = ({ openModal }) => {
             <button type="submit" className="create-btn">
               Create
             </button>
-            <button className="close-create" onClick={openModal}>
+            <button
+              className="close-create"
+              disabled={isDisableButton}
+              onClick={openModal}
+            >
               Cancel
             </button>
           </div>
