@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import MessageModal from "../../Modals/MessageModal";
 import "./MessagePage.css";
@@ -6,12 +6,14 @@ import "./MessagePage.css";
 const MessagePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalStatus, setModalStatus] = useState("");
+  const [randomOTP, setRandomOTP] = useState("");
+  const [isDisableButton, setIsDisabledButton] = useState(false);
 
   const params = useLocation();
   const { firstName, lastName, phoneNumber } = params.state.contact;
-  const randomOTP = Math.round(Math.random() * 1000000);
 
   const sendMessage = () => {
+    setIsDisabledButton(true);
     fetch(`${process.env.REACT_APP_SERVER_URL}/api/send-message`, {
       method: "POST",
       headers: {
@@ -37,6 +39,11 @@ const MessagePage = () => {
         setIsModalOpen(true);
       });
   };
+
+  useEffect(() => {
+    const otp = Math.round(Math.random() * 1000000);
+    setRandomOTP(otp);
+  }, []);
   return (
     <div className="message-page">
       <div className="message-container">
@@ -60,7 +67,11 @@ const MessagePage = () => {
             })}
           </div>
         </div>
-        <button className="message-page-btn" onClick={sendMessage}>
+        <button
+          className="message-page-btn"
+          disabled={isDisableButton}
+          onClick={sendMessage}
+        >
           Send OTP
         </button>
       </div>
