@@ -69,14 +69,14 @@ const CreateContactModal = ({ openModal }) => {
             onChange={setPhoneNumber}
           />
           <div className="create-modal-btns">
-            <button type="submit" className="create-btn">
+            <button
+              type="submit"
+              className="create-btn"
+              disabled={isDisableButton}
+            >
               Create
             </button>
-            <button
-              className="close-create"
-              disabled={isDisableButton}
-              onClick={openModal}
-            >
+            <button className="close-create" onClick={openModal}>
               Cancel
             </button>
           </div>
